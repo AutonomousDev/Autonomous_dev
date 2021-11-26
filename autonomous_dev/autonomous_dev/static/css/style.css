@@ -60,8 +60,8 @@ ul {
 }
 
 a.card-title:hover {
-  color: #428bca;
-  text-decoration: none;
+    color: rgba(255,255,255,.75);
+text-decoration: none;
 }
 
 .card-content {
@@ -85,7 +85,7 @@ a.card-title:hover {
 }
 
 .card-metadata a:hover {
-  color: #428bca;
+  color: rgba(255,255,255,.75);
   text-decoration: none;
 }
 
