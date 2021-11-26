@@ -9,3 +9,10 @@ def home(request):
     }
     return render(request, 'blog/home.html', context)
 
+
+def about(request):
+    """This view is the about page."""
+    context = {
+        'posts': Post.objects.all()
+    }
+    return render(request, 'blog/about.html', context)
