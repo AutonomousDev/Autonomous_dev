@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
 def home(request):
-    return HttpResponse('<h1>blog home</h1>')
+    """This view is the home page. The blog will be shown here."""
+    return render(request, 'blog/home.html')
+
