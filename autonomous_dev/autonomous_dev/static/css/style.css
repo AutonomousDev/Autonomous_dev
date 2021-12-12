@@ -110,10 +110,8 @@ text-decoration: none;
 }
 
 .form-control-dark input{
-    height: 50px;
     background-color: #1c1e21;
     text-indent: 24px;
-    font-size: 18px;
     color: #fff;
 }
 
