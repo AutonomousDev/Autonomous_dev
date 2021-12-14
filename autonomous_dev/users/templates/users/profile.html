@@ -20,8 +20,21 @@
         </div>
     </div>
 </div>
-
-
-<!-- FORM HERE -->
+<!-- Update Form -->
+ <div class="content-section">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Profile Info</legend>
+                <div class="form-control-dark">
+                    {{ u_form|crispy }}
+                    {{ p_form|crispy }}
+                </div>
+            </fieldset>
+            <div class="form-group pb-3">
+                <button class="btn btn-outline-info" type="submit">Save Profile</button>
+            </div>
+        </form>
+ </div>
 
 {% endblock content %}

@@ -1,15 +1,18 @@
 {% extends "blog/base.html" %}
 {% block content %}
 {% for post in posts %}
-<article class="rounded mb-3">
-    <div class="card">
-        <div class="card-metadata">
+<article class="rounded mb-3 card">
+    <div class="d-flex">
+        <div class="flex-shrink-0">
+            <img src="{{ post.author.profile.image.url }}" class="rounded-circle article-img">
+        </div>
+        <div class="card-metadata flex-grow-1 ms-3">
+            <h2><a class="card-title" href="#">{{ post.title }}</a></h2>
             <a class="me-2" href="#">{{ post.author.first_name }} {{ post.author.last_name }}</a>
             <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
         </div>
-        <h2><a class="card-title" href="#">{{ post.title }}</a></h2>
-        <p class="card-content">{{ post.content }}</p>
     </div>
+    <p class="card-content">{{ post.content }}</p>
 </article>
 {% endfor %}
 {% endblock content %}
