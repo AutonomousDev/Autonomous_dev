@@ -1,3 +1,4 @@
 # created by virtualenv automatically
 env
 autonomous_dev/db.sqlite3
+/autonomous_dev/.env
