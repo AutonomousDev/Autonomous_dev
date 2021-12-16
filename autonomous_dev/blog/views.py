@@ -1,6 +1,5 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Post
-
 from django.views.generic import (
     ListView,
     DetailView,
@@ -10,25 +9,15 @@ from django.views.generic import (
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
 
-''' #Phased out
-def home(request):
-    """This view is the home page. The blog will be shown here."""
-    context = {
-        'posts': Post.objects.all()
-    }
-    return render(request, 'blog/home.html', context)
-'''
 
-
-def about(request):
+def about(request):  # Not in use. Also deactivated at the url.py
     """This view is the about page."""
-    context = {
-        'posts': Post.objects.all()
-    }
-    return render(request, 'blog/about.html', context)
+
+    return render(request, 'blog/about.html')
 
 
 class PostListView(ListView):
+    """This view list all post wit pagination for now it's also the home page"""
     model = Post
     template_name = 'blog/home.html'
     context_object_name = 'posts'
@@ -49,10 +38,13 @@ class UserPostListView(ListView):
 
 
 class PostDetailView(DetailView):
+    """This view shows a single post. if the user is the author the template has
+    update and delete buttons"""
     model = Post
 
 
 class PostCreateView(LoginRequiredMixin, CreateView):
+    """This view is used for creating new posts."""
     model = Post
     fields = ['title', 'content']
 
@@ -63,6 +55,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    """This view is used for updating posts"""
     model = Post
     fields = ['title', 'content']
 
@@ -72,6 +65,8 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         return super().form_valid(form)
 
     def test_func(self):
+        """Logic for checking the current user is the same as the author before they can
+        make updates"""
         post = self.get_object()
         if self.request.user == post.author:
             return True
@@ -80,10 +75,13 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    """Deletes the posts and redirects to home."""
     model = Post
     success_url = '/'
 
     def test_func(self):
+        """Logic for checking the current user is the same as the author before they can
+        make deletes"""
         post = self.get_object()
         if self.request.user == post.author:
             return True
