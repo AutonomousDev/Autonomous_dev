@@ -1,1 +1,1 @@
-web: gunicorn autonomous_dev/autonomous_dev.wsgi
+web: gunicorn autonomous_dev.wsgi
