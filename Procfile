@@ -1,0 +1,1 @@
+web: gunicorn autonomous_dev/autonomous_dev.wsgi
