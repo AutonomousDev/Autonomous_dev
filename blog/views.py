@@ -129,3 +129,30 @@ class ProjectCreateView(LoginRequiredMixin, CreateView):
         """Set author before validating the form"""
         form.instance.author = self.request.user
         return super().form_valid(form)
+
+
+class ProjectUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    """This view is used for updating posts"""
+    model = Project
+    fields = ['title',
+              'card_content',
+              'content',
+              'rank',
+              'image',
+              'demo_link',
+              'github_link',
+              ]
+
+    def form_valid(self, form):
+        """Set author before validating the form"""
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+    def test_func(self):
+        """Logic for checking the current user is the same as the author before they can
+        make updates"""
+        post = self.get_object()
+        if self.request.user == post.author:
+            return True
+        else:
+            return False
