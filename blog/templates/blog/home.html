@@ -1,38 +1,8 @@
 {% extends "blog/base.html" %}
 {% block content %}
-{% for post in posts %}
-<article class="rounded mb-3 card">
-    <div class="d-flex">
-        <div class="flex-shrink-0">
-            <img src="{{ post.author.profile.image.url }}" class="rounded-circle article-img">
-        </div>
-        <div class="card-metadata flex-grow-1 ms-3">
-            <h2><a class="card-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
-            <a class="me-2" href="{% url 'user-posts' post.author.username %}">{{ post.author.first_name }} {{ post.author.last_name }}</a>
-            <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
-        </div>
-    </div>
-    <p class="card-content">{{ post.content }}</p>
-</article>
-{% endfor %}
-<div class="d-flex justify-content-center">
-{% if is_paginated %}
-    {% if page_obj.has_previous %}
-        <a class="btn btn-outline-info mb-4"href="?page=1">First</a>
-        <a class="btn btn-outline-info mb-4"href="?page={{ page_obj.previous_page_number }}">Previous</a>
-    {% endif %}
-    {% for num in page_obj.paginator.page_range %}
-        {% if page_obj.number == num %}
-            <a class="btn btn-info mb-4"href="?page={{ num }}">{{ num }}</a>
-        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'+3'  %}
-            <a class="btn btn-outline-info mb-4"href="?page={{ num }}">{{ num }}</a>
 
-        {% endif %}
-    {% endfor %}
-    {% if page_obj.has_next %}
-        <a class="btn btn-outline-info mb-4"href="?page={{ page_obj.next_page_number }}">Next</a>
-        <a class="btn btn-outline-info mb-4"href="?page={{ page_obj.num_pages }}">Last</a>
-    {% endif %}
-{% endif %}
-</div>
+{% include 'blog/component_post_list.html' %}
+
+{% include 'blog/component_pagination.html' %}
+
 {% endblock content %}

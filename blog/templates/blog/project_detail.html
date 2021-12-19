@@ -4,7 +4,7 @@
 <article class="rounded mb-3 card">
     <div class="d-flex">
         <div class="flex-shrink-0">
-            <img src="{{ object.project.image.url }}" class="rounded-circle article-img">
+            <img src="{{ object.image.url }}" class="rounded article-img">
         </div>
         <div class="card-metadata flex-grow-1 ms-3">
             <h2 class="card-title">{{ object.title }}</h2>
@@ -13,11 +13,10 @@
     <p class="card-content">{{ object.content }}</p>
 </article>
 
+{% if posts %}
+<h2>Related posts</h2>
 
-{% include 'blog/user_posts.html' %}
-
-{% block posts %}
-
-{% endblock posts %}
+{% include 'blog/component_post_list.html' %}
+{% endif %}
 
 {% endblock content %}
