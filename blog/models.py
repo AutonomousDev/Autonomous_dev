@@ -10,6 +10,8 @@ class Project(models.Model):
     content = models.TextField()
     rank = models.IntegerField(default=0)
     image = models.ImageField(null=True, default='default.jpg', upload_to='project_pics')
+    demo_link = models.URLField(default="", blank=True)
+    github_link = models.URLField(default="", blank=True)
 
     def __str__(self):
         return f'{self.title}'
