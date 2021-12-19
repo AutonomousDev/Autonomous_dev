@@ -7,7 +7,8 @@ from .views import (
     PostDeleteView,
     UserPostListView,
     ProjectListView,
-    ProjectDetailView)
+    ProjectDetailView,
+    ProjectCreateView)
 
 
 urlpatterns = [
@@ -20,4 +21,5 @@ urlpatterns = [
     path('user/<str:username>', UserPostListView.as_view(), name='user-posts'),
     path('', ProjectListView.as_view(), name='project-list'),
     path('project/<int:pk>/', ProjectDetailView.as_view(), name='project-detail'),
+    path('project/new/', ProjectCreateView.as_view(), name='project-create'),
 ]

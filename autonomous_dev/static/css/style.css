@@ -127,7 +127,11 @@ text-decoration: none;
   width: 65px;
   margin-right: 16px;
 }
-
+.project-img {
+  height: auto;
+  width: 100px;
+  margin-right: 16px;
+}
 .card-thumbnail {
     max-height: 250px;
     overflow: hidden;

@@ -113,3 +113,19 @@ class ProjectDetailView(DetailView):
         return context
 
 
+class ProjectCreateView(LoginRequiredMixin, CreateView):
+    """This view is used for creating new projects."""
+    model = Project
+    fields = ['title',
+              'card_content',
+              'content',
+              'rank',
+              'image',
+              'demo_link',
+              'github_link',
+              ]
+
+    def form_valid(self, form):
+        """Set author before validating the form"""
+        form.instance.author = self.request.user
+        return super().form_valid(form)

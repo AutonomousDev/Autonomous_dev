@@ -12,9 +12,13 @@ class Project(models.Model):
     image = models.ImageField(null=True, default='default.jpg', upload_to='project_pics')
     demo_link = models.URLField(default="", blank=True)
     github_link = models.URLField(default="", blank=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return f'{self.title}'
+
+    def get_absolute_url(self):
+        return reverse('project-detail', kwargs={'pk': self.pk})
 
 
 class Post(models.Model):
