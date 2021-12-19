@@ -46,7 +46,7 @@ class PostDetailView(DetailView):
 class PostCreateView(LoginRequiredMixin, CreateView):
     """This view is used for creating new posts."""
     model = Post
-    fields = ['title', 'content']
+    fields = ['title', 'content', 'project']
 
     def form_valid(self, form):
         """Set author before validating the form"""

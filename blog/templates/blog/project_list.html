@@ -12,7 +12,7 @@
             <div class="col-md-6 col-lg-4 mb-4">
                 <div class="card my-3 h-100 position-relative">
                     <div class="card-thumbnail">
-                        <img src="{{ project.image.url }}" class="img-fluid rounded" alt="thumbnail">
+                        <img src="{{ project.image.url }}" class="card-thumbnail img-fluid" alt="thumbnail">
                     </div>
                     <div class="card-body">
                         <h3 class="card-title"><a class="card-title" href="{% url 'project-detail' project.id %}">{{ project.title }}</a></h3>
