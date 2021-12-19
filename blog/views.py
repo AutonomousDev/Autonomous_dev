@@ -99,3 +99,17 @@ class ProjectListView(ListView):
 
     # Pagination doesn't make sense for this view I think.
     # paginate_by = 5
+
+
+class ProjectDetailView(DetailView):
+    """This view shows a single project. If post have a matching category they show up as well"""
+    model = Project
+
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        # Add in a QuerySet of all the books
+        context['posts'] = Post.objects.filter(project=self.object)
+        return context
+
+
