@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Post
+from .models import Post, Project
 from django.views.generic import (
     ListView,
     DetailView,
@@ -17,7 +17,7 @@ def about(request):  # Not in use. Also deactivated at the url.py
 
 
 class PostListView(ListView):
-    """This view list all post wit pagination for now it's also the home page"""
+    """This view list all post with pagination for now it's also the home page"""
     model = Post
     template_name = 'blog/home.html'
     context_object_name = 'posts'
@@ -87,3 +87,12 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
             return True
         else:
             return False
+
+
+class ProjectListView(ListView):
+    """This view is used to display my main portfolio as a grid"""
+    model = Project
+    template_name = 'blog/project_list.html'
+    context_object_name = 'projects'
+    ordering = ['-rank']
+    paginate_by = 5
