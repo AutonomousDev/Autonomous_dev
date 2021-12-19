@@ -156,3 +156,18 @@ class ProjectUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
             return True
         else:
             return False
+
+
+class ProjectDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    """Deletes the posts and redirects to home."""
+    model = Project
+    success_url = '/'
+
+    def test_func(self):
+        """Logic for checking the current user is the same as the author before they can
+        make deletes"""
+        post = self.get_object()
+        if self.request.user == post.author:
+            return True
+        else:
+            return False

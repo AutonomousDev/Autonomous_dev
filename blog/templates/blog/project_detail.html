@@ -9,7 +9,7 @@
         <div class="card-metadata flex-grow-1 ms-3">
             <h2 class="card-title">{{ object.title }}</h2>
 
-            <div>
+            <div><!-- project links -->
                 {% if object.demo_link %}
                 <a class="btn btn-success btn-sm mt-1 mb-1" href="{{ object.demo_link }}">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -31,16 +31,12 @@
                 </a>
                 {% endif %}
                 {% if object.author == user %}
-
+                <!-- Author edit and delete controls -->
                     <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'project-update' object.id %}">Update</a>
-                    <a class="btn btn-danger btn-sm mt-1 mb-1" href="#">Delete</a>
-
-
+                    <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'project-delete' object.id %}">Delete</a>
                 {% endif %}
             </div>
         </div>
-
-
     </div>
     <p class="card-content">{{ object.content }}</p>
 </article>
