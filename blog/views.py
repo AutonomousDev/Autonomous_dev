@@ -89,10 +89,13 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
             return False
 
 
+# Project display system
 class ProjectListView(ListView):
     """This view is used to display my main portfolio as a grid"""
     model = Project
     template_name = 'blog/project_list.html'
     context_object_name = 'projects'
     ordering = ['-rank']
-    paginate_by = 5
+
+    # Pagination doesn't make sense for this view I think.
+    # paginate_by = 5

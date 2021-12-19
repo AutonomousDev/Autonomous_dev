@@ -6,13 +6,13 @@
     <div class="container ">
         <div class="row">
             <div class="col-12">
-                <h2 class="mb-3 text-danger">Projects</h2>
+                <h2 class="mb-3">Projects</h2>
             </div>
             {% for project in projects %}
             <div class="col-md-6 col-lg-4 mb-4">
                 <div class="card my-3 h-100 position-relative">
                     <div class="card-thumbnail">
-                        <img src="https://www.markuptag.com/images/image-one.jpg" class="img-fluid" alt="thumbnail">
+                        <img src="{{ project.image.url }}" class="img-fluid rounded" alt="thumbnail">
                     </div>
                     <div class="card-body">
                         <h3 class="card-title"><a class="card-title" href="#">{{ project.title }}</a></h3>
@@ -28,6 +28,7 @@
     </div>
 </section>
 
+<!--I don't think were using pagination here
 <div class="d-flex justify-content-center">
     {% if is_paginated %}
     {% if page_obj.has_previous %}
@@ -48,4 +49,5 @@
     {% endif %}
     {% endif %}
 </div>
+-->
 {% endblock content %}

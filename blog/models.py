@@ -17,6 +17,10 @@ class Project(models.Model):
     content = models.TextField()
     category = models.ForeignKey(Category, blank=True, on_delete=models.SET_NULL, default=None, null=True)
     rank = models.IntegerField(default=0)
+    image = models.ImageField(null=True, default='default.jpg', upload_to='project_pics')
+
+    def __str__(self):
+        return f'{self.title}'
 
 class Post(models.Model):
     title = models.CharField(max_length=100)
