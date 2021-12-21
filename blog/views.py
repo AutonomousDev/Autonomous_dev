@@ -10,12 +10,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
 
 
-def about(request):  # Not in use. Also deactivated at the url.py
-    """This view is the about page."""
-
-    return render(request, 'blog/about.html')
-
-
 class PostListView(ListView):
     """This view list all post with pagination for now it's also the home page"""
     model = Post
