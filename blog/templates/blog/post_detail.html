@@ -19,7 +19,7 @@
             {% endif %}
         </div>
     </div>
-    <p class="card-content">{{ object.content }}</p>
+    <p class="card-content">{{ object.content|safe }}</p>
 </article>
 
 {% endblock content %}

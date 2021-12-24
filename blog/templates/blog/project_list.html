@@ -16,7 +16,7 @@
                     </div>
                     <div class="card-body">
                         <h3 class="card-title"><a class="card-title" href="{% url 'project-detail' project.id %}">{{ project.title }}</a></h3>
-                        <p class="card-text">{{ project.card_content }}</p>
+                        <p class="card-text">{{ project.card_content|safe }}</p>
                         <div class="position-absolute bottom-0 start-50 m-3">
                             <a href="{% url 'project-detail' project.id %}" class="btn btn-danger">Read More</a>
                         </div>

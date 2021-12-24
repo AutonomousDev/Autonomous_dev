@@ -2,12 +2,13 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
+from tinymce.models import HTMLField
 
 
 class Project(models.Model):
     title = title = models.CharField(max_length=30)
     card_content = models.TextField(max_length=150)
-    content = models.TextField()
+    content = HTMLField()
     rank = models.IntegerField(default=0)
     image = models.ImageField(null=True, default='default.jpg', upload_to='project_pics')
     demo_link = models.URLField(default="", blank=True)
@@ -23,7 +24,7 @@ class Project(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=100)
-    content = models.TextField()
+    content = HTMLField()
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     project = models.ForeignKey(Project, on_delete=models.SET_NULL, default=None, null=True, blank=True)
