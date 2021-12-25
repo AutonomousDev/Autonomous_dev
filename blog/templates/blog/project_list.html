@@ -1,7 +1,36 @@
 {% extends "blog/base.html" %}
 {% block content %}
+<section class="py-4 my-5">
+    <div class="container ">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="mb-3">Projects</h2>
+            </div>
+            {% for project in projects %}
+            <div class="col-xs-12 col-sm-4 mb-4">
+                <div class="card h-100">
+                    <a class="img-card"
+                       href="{% url 'project-detail' project.id %}">
+                        <img src="{{ project.image.url }}"/>
+                    </a>
+                    <div class="card-content">
+                        <h4 class="card-title">
+                            <a href="{% url 'project-detail' project.id %}">
+                                {{ project.title }}
+                            </a>
+                        </h4>
+                        <p class="">
+                            {{ project.card_content|safe }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
 
-
+<!--
 <section class="py-4 my-5">
     <div class="container ">
         <div class="row">
@@ -15,11 +44,9 @@
                         <img src="{{ project.image.url }}" class="card-thumbnail img-fluid" alt="thumbnail">
                     </div>
                     <div class="card-body">
-                        <h3 class="card-title"><a class="card-title" href="{% url 'project-detail' project.id %}">{{ project.title }}</a></h3>
+                        <h3 class="card-title"><a class="card-title" href="{% url 'project-detail' project.id %}">{{
+                            project.title }}</a></h3>
                         <p class="card-text">{{ project.card_content|safe }}</p>
-                        <div class="position-absolute bottom-0 start-50 m-3">
-                            <a href="{% url 'project-detail' project.id %}" class="btn btn-danger">Read More</a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -27,4 +54,5 @@
         </div>
     </div>
 </section>
+-->
 {% endblock content %}

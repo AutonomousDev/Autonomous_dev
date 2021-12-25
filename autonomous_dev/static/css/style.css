@@ -53,28 +53,59 @@ ul {
 
 .card{
   background: #424242;;
-  padding: 10px 20px;
+  padding: 10px 10px;
   border-radius: 3px;
-  margin-bottom: 20px;
+  display: block;
+  line-height: 1.5;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+  transition: box-shadow .25s;
+}
+
+.card:hover {
+  box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 .card-title {
   color: white;
+  margin-top:0px;
+  font-weight: 700;
+  font-size: 1.65em;
 }
 
-a.card-title:hover {
+.card-title a {
+  color: white;
+  text-decoration: none !important;
+}
+
+.card-title:hover a{
     color: rgba(255,255,255,.75);
 text-decoration: none;
 }
 
 .card-content {
-  white-space: pre-line;
+  padding:15px;
+  text-align:left;
 }
 
 .card-img {
   height: 65px;
   width: 65px;
   margin-right: 16px;
+}
+
+.img-card {
+  width: 100%;
+  height:200px;
+  border-radius: 10px;
+  display:block;
+    overflow: hidden;
+}
+
+.img-card img{
+  width: 100%;
+  height: 200px;
+  object-fit:cover;
+  transition: all .25s ease;
 }
 
 .card-metadata {
@@ -96,6 +127,17 @@ text-decoration: none;
   width: 25px;
   height: 25px;
   vertical-align: middle;
+}
+
+.card-read-more {
+  border-top: 1px solid #D4D4D4;
+}
+
+.card-read-more a {
+  text-decoration: none !important;
+  padding:10px;
+  font-weight:600;
+  text-transform: uppercase
 }
 
 .account-img {
@@ -135,5 +177,11 @@ text-decoration: none;
 .card-thumbnail {
     max-height: 250px;
     overflow: hidden;
+}
+
+.ratio-1-1{
+    width: 100%;
+    padding-bottom: 100%!important; /* 1:1 Aspect Ratio */
+    position: relative; /* If you want text inside of it */
 }
 
