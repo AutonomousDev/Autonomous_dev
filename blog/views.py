@@ -103,7 +103,7 @@ class ProjectDetailView(DetailView):
         # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)
         # Add in a QuerySet of all the books
-        context['posts'] = Post.objects.filter(project=self.object)
+        context['posts'] = Post.objects.filter(project=self.object).order_by('-date_posted')
         return context
 
 
