@@ -26,15 +26,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
+
 # Deployment security stuff
-SECURE_BROWSER_XSS_FILTER = True
-SECURE_CONTENT_TYPE_NOSNIFF = True
-SECURE_SSL_REDIRECT = True
+SECURE_BROWSER_XSS_FILTER = not bool(os.environ.get('DEBUG_MODE'))
+SECURE_CONTENT_TYPE_NOSNIFF = not bool(os.environ.get('DEBUG_MODE'))
+SECURE_SSL_REDIRECT = not bool(os.environ.get('DEBUG_MODE'))
 SECURE_HSTS_SECONDS = 86400  # Equivalent to 1 day
-SECURE_HSTS_PRELOAD = True
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+SECURE_HSTS_PRELOAD = not bool(os.environ.get('DEBUG_MODE'))
+SECURE_HSTS_INCLUDE_SUBDOMAINS = not bool(os.environ.get('DEBUG_MODE'))
+SESSION_COOKIE_SECURE = not bool(os.environ.get('DEBUG_MODE'))
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+CSRF_COOKIE_SECURE = not bool(os.environ.get('DEBUG_MODE'))
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
@@ -47,7 +50,7 @@ MESSAGE_TAGS = {
     messages.ERROR: 'danger',
 }
 
-ALLOWED_HOSTS = ['autonomous-dev.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'autonomous-dev.herokuapp.com']
 
 # Application definition
 

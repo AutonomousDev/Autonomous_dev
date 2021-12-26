@@ -8,12 +8,21 @@
         </div>
         <div class="card-metadata flex-grow-1 ms-3">
             <h2><a class="card-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
-            <a class="me-2" href="{% url 'user-posts' post.author.username %}">{{ post.author.first_name }} {{ post.author.last_name }}</a>
-            <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+            <a class="me-2" href="{% url 'user-posts' post.author.username %}">
+                {{ post.author.first_name }} {{ post.author.last_name }}
+            </a>
+            <small class="text-muted">
+                {{ post.date_posted|date:"F d, Y" }}
+            </small>
+            {% if post.project %}
+            <a href="{% url 'project-detail' post.project.id %}">
+                {{ post.project }}
+            </a>
+            {% endif %}
         </div>
     </div>
     <div class="card-content">
-    {{ post.content|safe }}
+        {{ post.content|safe }}
     </div>
 </article>
 {% endfor %}
