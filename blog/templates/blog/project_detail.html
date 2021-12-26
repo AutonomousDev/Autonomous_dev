@@ -38,7 +38,9 @@
             </div>
         </div>
     </div>
-    <p class="card-content">{{ object.content|safe }}</p>
+    <div class="card-content">
+        {{ object.content|safe }}
+    </div>
 </article>
 
 {% if posts %}

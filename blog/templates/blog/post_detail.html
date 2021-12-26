@@ -1,7 +1,7 @@
 {% extends "blog/base.html" %}
 {% block content %}
 
-<article class="rounded mb-3 card">
+<article class="rounded mb-3 card" xmlns="http://www.w3.org/1999/html">
     <div class="d-flex">
         <div class="flex-shrink-0">
             <img src="{{ object.author.profile.image.url }}" class="rounded-circle article-img">
@@ -19,7 +19,9 @@
             {% endif %}
         </div>
     </div>
-    <p class="card-content">{{ object.content|safe }}</p>
+    <div class="card-content"
+         {{ object.content|safe }}
+    </div>
 </article>
 
 {% endblock content %}

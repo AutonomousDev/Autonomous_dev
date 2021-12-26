@@ -12,6 +12,8 @@
             <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
         </div>
     </div>
-    <p class="card-content">{{ post.content|safe }}</p>
+    <div class="card-content">
+    {{ post.content|safe }}
+    </div>
 </article>
 {% endfor %}

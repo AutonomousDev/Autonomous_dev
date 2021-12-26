@@ -19,7 +19,7 @@
                                 {{ project.title }}
                             </a>
                         </h4>
-                        <p class="">
+                        <p>
                             {{ project.card_content|safe }}
                         </p>
                     </div>
@@ -30,29 +30,4 @@
     </div>
 </section>
 
-<!--
-<section class="py-4 my-5">
-    <div class="container ">
-        <div class="row">
-            <div class="col-12">
-                <h2 class="mb-3">Projects</h2>
-            </div>
-            {% for project in projects %}
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card my-3 h-100 position-relative">
-                    <div class="card-thumbnail">
-                        <img src="{{ project.image.url }}" class="card-thumbnail img-fluid" alt="thumbnail">
-                    </div>
-                    <div class="card-body">
-                        <h3 class="card-title"><a class="card-title" href="{% url 'project-detail' project.id %}">{{
-                            project.title }}</a></h3>
-                        <p class="card-text">{{ project.card_content|safe }}</p>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-</section>
--->
 {% endblock content %}
