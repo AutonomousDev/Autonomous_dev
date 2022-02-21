@@ -1,6 +1,6 @@
 # Autonomous_dev
 
-I wanted to put togeather a portfolio site built completely from scratch so I made this. 
+I wanted to put together a <a href="https://www.autonomousdev.net/">portfolio site</a> built completely from scratch so I made this. 
 
 The project is build on django and mostly uses the django template system and bootstrap5 for frontend. The production database is PostgresSQL. Both the App and the data base are hosted on heroku. For file hosting the app is connected to AWS S3.
 
