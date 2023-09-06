@@ -7,7 +7,7 @@ class UploadFileForm(forms.Form):
 
     When I have this bug again remember,
     1) HTML Template needs <form method="post" enctype="multipart/form-data">
-    2) copy past this class into the relevant app
+    2) copy paste this class into the relevant app
     """
     title = forms.CharField(max_length=50)
     file = forms.FileField()
