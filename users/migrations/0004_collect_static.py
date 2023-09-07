@@ -1,6 +1,10 @@
 from django.db import migrations
 from django.core.management import call_command
 
+def run_collect_static(args, options):
+    call_command('collectstatic', '--noinput')
+
+
 class Migration(migrations.Migration):
 
     dependencies = [
@@ -8,5 +12,5 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RunPython(call_command('collectstatic', '--noinput'))
+        migrations.RunPython(run_collect_static)
     ]
