@@ -1,8 +1,11 @@
 {% extends "blog/base.html" %}
 {% block content %}
 
+<section class="py-4 my-5">
+    <h1>Blog Posts</h1>
 {% include 'blog/component_post_list.html' %}
 
 {% include 'blog/component_pagination.html' %}
+</section>
 
 {% endblock content %}
