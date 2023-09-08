@@ -9,10 +9,11 @@
             {% for project in projects %}
             <div class="col-md-6 col-lg-4 mb-4">
                 <div class="card h-100">
-                    <a class="img-card"
-                       href="{% url 'project-detail' project.id %}">
-                        <img src="{{ project.image.url }}"/>
-                    </a>
+                    <div class="ratio ratio-1x1">
+                        <a class="img-card" href="{% url 'project-detail' project.id %}">
+                            <img class="img-thumbnail" src="{{ project.image.url }}"/>
+                        </a>
+                    </div>
                     <div class="card-content">
                         <h4 class="card-title project-card-title">
                             <a href="{% url 'project-detail' project.id %}">
