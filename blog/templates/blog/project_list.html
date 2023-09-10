@@ -9,7 +9,7 @@
             {% for project in projects %}
             <div class="col-md-6 col-lg-4 mb-4">
                 <div class="card h-100">
-                    <div class="ratio ratio-1x1">
+                    <div>
                         <a class="img-card" href="{% url 'project-detail' project.id %}">
                             <img class="img-thumbnail" src="{{ project.image.url }}"/>
                         </a>
